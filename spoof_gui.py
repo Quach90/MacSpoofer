@@ -152,7 +152,7 @@ class spoofGUI(Tkinter.Tk):
 				print("MacChanged")
 				spoof_mac_random(self.targetDevice, self.password.get())
 				refreshInfoFrame()
-				threading.Timer(self.interval, timedRandomize).start()
+				threading.Timer(self.interval*60, timedRandomize).start()
 			# if self.targetDevice == '':
 			# 	tkMessageBox.showinfo("Randomize", "Please select a target above")
 			# else:
