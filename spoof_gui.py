@@ -357,8 +357,8 @@ def saveData(mac):
 	data = json.loads(response.read())
 
 	localtime = time.asctime( time.localtime(time.time()))
-	if os.path.isfile('data.txt'):
-		with open('data.txt') as data_file:
+	if os.path.isfile('log.json'):
+		with open('log.json') as data_file:
 			dataFile = json.load(data_file)
 		counter=0
 		notFound = True;
@@ -371,13 +371,13 @@ def saveData(mac):
 			data['Connections'].append({'Time Stamp': localtime, 'MacAddress':mac})
 			dataFile.append(data)
 		counter = counter + 1
-		with open('data.txt', 'w') as outfile:
+		with open('log.json', 'w') as outfile:
 			json.dump(dataFile, outfile, indent=4)
 	else:
 		data['Connections'] = []
 		data['Connections'].append({'Time Stamp': localtime, 'MacAddress':mac})
 		outPutData = [data]
-		with open('data.txt', 'w') as outfile:
+		with open('log.json', 'w') as outfile:
 			json.dump(outPutData, outfile, indent=4)
 
 	
